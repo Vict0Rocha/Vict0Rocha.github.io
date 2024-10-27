@@ -1,61 +1,236 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio Victor Cordeiro</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;0,900;1,300;1,700;1,900&display=swap" rel="stylesheet">
-  <!-- Dev Icon Fonts -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@master/devicon.min.css">
-  <!-- CSS do Projeto -->
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victor Cordeiro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Patua+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            display: flex;
+            background-color: #111821;
+            color: #fff;
+        }
+
+
+        .col1 {
+            flex: 0.5;
+        }
+
+        .col2 {
+            flex: 2;
+            text-align: center;
+        }
+
+        .title {
+            margin-bottom: 30px;
+            /* Espaçamento abaixo do título */
+            font-family: Roboto;
+        }
+
+        :root {
+            --main-color: #54B689;
+        }
+
+        .foto_principal {
+            width: 200px;
+            border-radius: 5%;
+            float: left;
+            margin-right: 15px;
+            /* Espaçamento à direita da imagem */
+            margin-bottom: 15px;
+            /* Espaçamento abaixo da imagem */
+            margin-top: 20px;
+        }
+
+        .foto_projeto {
+            width: 140px;
+        }
+
+
+        .sobre {
+            text-align: left;
+            margin-left: 240px;
+            font-family: Roboto;
+            font-size: 30px;
+            color: #54B689;
+        }
+
+        p {
+            text-align: justify;
+            /* Justifica o texto do parágrafo */
+            text-indent: 30px;
+            /* Recuo da primeira linha do parágrafo */
+            font-size: 18px;
+            font-family: Quicksand;
+        }
+
+
+        .quicksand {
+            font-family: "Quicksand", sans-serif;
+            font-style: normal;
+        }
+
+        .highlight {
+            color: var(--main-color);
+        }
+
+        .projetos h2 {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .projetos {
+            text-align: center;
+        }
+
+        .projetos_conteudo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            /* Espaçamento entre as divs de projeto */
+            margin-top: 20px;
+            /* Espaço entre o título e os projetos */
+        }
+
+        .div_projeto_1,
+        .div_projeto_2 {
+            width: 400px;
+            height: 440px;
+            padding: 15px;
+            box-sizing: border-box;
+            background-color: #1e2a3a86;
+            margin: 20px;
+            border-radius: 3%;
+        }
+
+        .img_calculadora {
+            width: 210px;
+            padding-top: 10px;
+        }
+
+        .h2_projetos {
+            font-size: 30px;
+            font-family: Roboto;
+            text-align: center;
+            padding-top: 120px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .h2_habilidade {
+            font-size: 30px;
+            font-family: Roboto;
+            text-align: center;
+            padding-top: 40px;
+        }
+
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        li {
+            background-color: #1e2a3a86;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 20px;
+            color: #54B689;
+            font-weight: bold;
+            font-family: Quicksand;
+        }
+
+        .h2_contato {
+            font-size: 27px;
+            font-family: Roboto;
+            text-align: center;
+            padding-top: 60px;
+            padding-bottom: 20px;
+        }
+
+        .link_github {
+            text-decoration: none;
+            font-family: Quicksand;
+            font-size: 23px;
+            display: flex;
+            margin-left: 30px;
+            color: #54B689;
+        }
+    </style>
 </head>
+
 <body>
-  <main id="container">
-    <aside id="bio-container">
-      <h2>Victor Cordeiro</h2>
-      <img id="bio-image" src="img/img.jpeg" alt="Victor Cordeiro">
-      <p>Olá, meu nome é Victor Hugo e sou <span class="highlight">estudante de programação</span>.</p>
-      <p id="welcome-text">Seja bem-vindo!</p>
-      <ul id="social-container">
-        <li><a href="#" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a></li>
-        <li><a href="#" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a></li>
-      </ul>
-      <div id="email-container">
-        <ion-icon name="mail-outline"></ion-icon><a href="mailto:victorhugocordeirocha@gmail.com">victorhugocordeirocha@gmail.com</a>
-      </div>
-    </aside>
-    <section id="about-container">
-      <h1 id="name">Victor Hugo Cordeiro Rocha</h1>
-      <p id="title"><span class="highlight">Futuro desenvolvedor</span></p>
-      <p class="description">Eu faço faculdade de Sistemas de Informação, estudo todos os dias, busco sempre melhorar,
-        meu <span class="highlight"> desejo é ser Full-stack </span>, atualmente estou estudando Back-end focando em python, mas também pretendo estudar Front. 
-        Meu GitHub: <span class="highlight"> https://github.com/Vict0Rocha </span> </p>
-      <a href="#" id="btn-projects"><ion-icon name="share-social-outline"></ion-icon> <span>Ver Projetos</span></a>
-      <h2 id="skills-section-title">Minhas Skills</h2>
-      <p class="description">Tecnologias que conheço:</p>
-      <div id="skills-container">
-        <div class="skills-box">
-          <p class="skills-title">Front-end</p>
-          <i class="devicon-html5-plain colored"></i>
-          <i class="devicon-css3-plain colored"></i>
-          <i class="devicon-javascript-plain colored"></i>
-        </div>
-        <div class="skills-box">
-          <p class="skills-title">Back-end</p>
-          <i class="devicon-cplusplus-plain colored"></i>
-          <i class="devicon-java-plain colored"></i>
-          <i class="devicon-python-plain colored"></i>
-        </div>
-        <div class="skills-box">
-          <p class="skills-title">Databases</p>
-          <i class="devicon-mysql-plain colored"></i>
-        </div>
-      </div>
-    </section>
-  </main>
-  <!-- Ion Icons -->
-  <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+    <div class="col1"></div>
+    <div class="col2">
+        <header>
+            <h1 class="title">Victor Cordeiro</h1>
+            <img class="foto_principal" src="img/foto.jpeg" alt="foto-do-victor">
+            <h2 class="sobre">.sobre</h2>
+            <p class="paragrofo_sobre"> Faço faculdade de Sistemas de Informação, estudo todos os
+                dias, busco sempre melhorar, meu desejo é ser <span class="highlight">desenvolvedor
+                    back-end</span>,
+                tenho conhecimento sobre git e github. Atualmente estou <span class="highlight"> estudando python,
+                    html e
+                    css.</span>
+            </p>
+            <p>Tenho interesse na area de desenvolvimento web e algoritmos.</p>
+        </header>
+
+        <h2 class="h2_projetos">Projetos</h2>
+        <section class="projetos">
+            <div class="projetos_conteudo">
+                <div class="div_projeto_1">
+                    <p>Calculadora desenvolvida em Python utilizando PySide6.
+                        <a href="https://github.com/Vict0Rocha/calculator/tree/main" target="_blank"><span
+                                class="highlight">Saiba mais.</span>
+                        </a>
+                    </p>
+                    <a href="https://github.com/Vict0Rocha/calculator/tree/main" target="_blank">
+                        <img class="img_calculadora" src="img/calculadora.png" alt="imagem_do_projeto">
+                    </a>
+                </div>
+                <div class="div_projeto_2">
+                    <!-- Ainda não tenho mais projetos, mas terei outros em breve -->
+                    <p>em breve...</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2 class="h2_habilidade">Habilidades</h2>
+            <ul>
+                <li>Python</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>SQL</li>
+            </ul>
+        </section>
+
+
+        <footer>
+            <h2 class="h2_contato">Entre em contato comigo</h2>
+            <a class="link_github" href="https://github.com/Vict0Rocha" target="_blank"><b> GitHub</b></a>
+            <p>victor.rocha@estudante.ifmt.edu.br</p>
+
+        </footer>
+    </div>
+    <div class="col1"></div>
+
 </body>
+
 </html>
