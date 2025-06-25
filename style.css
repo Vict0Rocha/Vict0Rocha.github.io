@@ -1,0 +1,63 @@
+/* Definindo a fonte padrão para todo o corpo do documento e transições suaves */
+body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Adiciona uma transição suave para a cor de fundo ao trocar de tema */
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Estilo para a mensagem de feedback de cópia e de erro, com transições */
+#copyFeedback,
+#error-message {
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Animação de "pulso" para dar feedback visual quando o resultado é atualizado */
+@keyframes pulse-result {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.03);
+        opacity: 0.95;
+    }
+}
+
+/* Classe utilitária para aplicar a animação de pulso via JavaScript */
+.animate-pulse-result {
+    animation: pulse-result 0.5s ease-in-out;
+}
+
+/* NOVO: Animação de alerta para o temporizador */
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+.shake {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}

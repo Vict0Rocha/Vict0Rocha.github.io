@@ -1,236 +1,274 @@
 <!DOCTYPE html>
+<!-- O JS vai gerenciar a classe 'dark' aqui -->
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victor Cordeiro</title>
+    <title>Ferramentas Web: Jogo, Conversor e Sorteador</title>
+
+    <!-- Importando o framework Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Importando a fonte 'Inter' do Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Patua+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            display: flex;
-            background-color: #111821;
-            color: #fff;
+    <!-- Importando a biblioteca de áudio Tone.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+
+    <!-- Configuração do Tailwind para usar a classe 'dark' no modo escuro -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
         }
+    </script>
 
+    <!-- Conectando ao nosso arquivo de estilos personalizados -->
+    <link rel="stylesheet" href="style.css">
 
-        .col1 {
-            flex: 0.5;
-        }
-
-        .col2 {
-            flex: 2;
-            text-align: center;
-        }
-
-        .title {
-            margin-bottom: 30px;
-            /* Espaçamento abaixo do título */
-            font-family: Roboto;
-        }
-
-        :root {
-            --main-color: #54B689;
-        }
-
-        .foto_principal {
-            width: 200px;
-            border-radius: 5%;
-            float: left;
-            margin-right: 15px;
-            /* Espaçamento à direita da imagem */
-            margin-bottom: 15px;
-            /* Espaçamento abaixo da imagem */
-            margin-top: 20px;
-        }
-
-        .foto_projeto {
-            width: 140px;
-        }
-
-
-        .sobre {
-            text-align: left;
-            margin-left: 240px;
-            font-family: Roboto;
-            font-size: 30px;
-            color: #54B689;
-        }
-
-        p {
-            text-align: justify;
-            /* Justifica o texto do parágrafo */
-            text-indent: 30px;
-            /* Recuo da primeira linha do parágrafo */
-            font-size: 18px;
-            font-family: Quicksand;
-        }
-
-
-        .quicksand {
-            font-family: "Quicksand", sans-serif;
-            font-style: normal;
-        }
-
-        .highlight {
-            color: var(--main-color);
-        }
-
-        .projetos h2 {
-            margin-top: 100px;
-            text-align: center;
-        }
-
-        .projetos {
-            text-align: center;
-        }
-
-        .projetos_conteudo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            /* Espaçamento entre as divs de projeto */
-            margin-top: 20px;
-            /* Espaço entre o título e os projetos */
-        }
-
-        .div_projeto_1,
-        .div_projeto_2 {
-            width: 400px;
-            height: 440px;
-            padding: 15px;
-            box-sizing: border-box;
-            background-color: #1e2a3a86;
-            margin: 20px;
-            border-radius: 3%;
-        }
-
-        .img_calculadora {
-            width: 210px;
-            padding-top: 10px;
-        }
-
-        .h2_projetos {
-            font-size: 30px;
-            font-family: Roboto;
-            text-align: center;
-            padding-top: 120px;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        .h2_habilidade {
-            font-size: 30px;
-            font-family: Roboto;
-            text-align: center;
-            padding-top: 40px;
-        }
-
-
-        ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        li {
-            background-color: #1e2a3a86;
-            padding: 15px 20px;
-            border-radius: 8px;
-            font-size: 20px;
-            color: #54B689;
-            font-weight: bold;
-            font-family: Quicksand;
-        }
-
-        .h2_contato {
-            font-size: 27px;
-            font-family: Roboto;
-            text-align: center;
-            padding-top: 60px;
-            padding-bottom: 20px;
-        }
-
-        .link_github {
-            text-decoration: none;
-            font-family: Quicksand;
-            font-size: 23px;
-            display: flex;
-            margin-left: 30px;
-            color: #54B689;
-        }
-    </style>
+    <!-- Conectando ao nosso arquivo JavaScript com 'defer' para performance -->
+    <script src="script.js" defer></script>
 </head>
 
-<body>
-    <div class="col1"></div>
-    <div class="col2">
-        <header>
-            <h1 class="title">Victor Cordeiro</h1>
-            <img class="foto_principal" src="img/foto.jpeg" alt="foto-do-victor">
-            <h2 class="sobre">.sobre</h2>
-            <p class="paragrofo_sobre"> Faço faculdade de Sistemas de Informação, estudo todos os
-                dias, busco sempre melhorar, meu desejo é ser <span class="highlight">desenvolvedor
-                    back-end</span>,
-                tenho conhecimento sobre git e github. Atualmente estou <span class="highlight"> estudando python,
-                    html e
-                    css.</span>
-            </p>
-            <p>Tenho interesse na area de desenvolvimento web e algoritmos.</p>
-        </header>
+<body class="bg-gray-100 dark:bg-gray-900 flex items-center justify-center min-h-screen p-4">
 
-        <h2 class="h2_projetos">Projetos</h2>
-        <section class="projetos">
-            <div class="projetos_conteudo">
-                <div class="div_projeto_1">
-                    <p>Calculadora desenvolvida em Python utilizando PySide6.
-                        <a href="https://github.com/Vict0Rocha/calculator/tree/main" target="_blank"><span
-                                class="highlight">Saiba mais.</span>
-                        </a>
+    <!-- Container principal -->
+    <div id="main-container"
+        class="relative w-full max-w-lg bg-white dark:bg-gray-800 dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl dark:shadow-2xl p-6 sm:p-8 transition-all duration-300">
+
+        <!-- Botão para alternar o tema -->
+        <button id="theme-toggle" title="Alterar tema"
+            class="absolute top-4 right-4 p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 focus:ring-blue-500 transition-all duration-300">
+            <svg id="theme-icon-light" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+            <svg id="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+        </button>
+
+        <!-- NAVEGAÇÃO POR ABAS -->
+        <div class="border-b border-gray-200 dark:border-gray-700">
+            <nav class="flex space-x-6" aria-label="Tabs">
+                <button id="tab-game"
+                    class="tab-button text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 whitespace-nowrap py-4 px-1 font-medium text-sm">
+                    Jogo
+                </button>
+                <button id="tab-converter"
+                    class="tab-button text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 whitespace-nowrap py-4 px-1 font-medium text-sm">
+                    Conversor
+                </button>
+                <button id="tab-sorter"
+                    class="tab-button text-blue-600 dark:text-blue-400 whitespace-nowrap py-4 px-1 font-medium text-sm">
+                    Sorteador
+                </button>
+            </nav>
+        </div>
+
+        <!-- Conteúdo das Abas -->
+        <div class="pt-6">
+            <!-- PAINEL JOGO -->
+            <div id="panel-game" class="tab-panel space-y-4 hidden">
+                <div class="text-center">
+                    <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white">Adivinhe o Número</h1>
+                    <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm sm:text-base">Pense em um número de 1 a 31 e
+                        clique nos cartões onde ele aparece.</p>
+                </div>
+
+                <div id="game-cards-container" class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                    <!-- Cartões serão gerados pelo JS -->
+                </div>
+
+                <div id="game-result-area" class="text-center pt-4 space-y-2 hidden">
+                    <p class="font-semibold text-gray-600 dark:text-gray-300">O número que você pensou é...</p>
+                    <p id="game-result-number" class="font-mono text-4xl font-bold text-green-600 dark:text-green-400">
                     </p>
-                    <a href="https://github.com/Vict0Rocha/calculator/tree/main" target="_blank">
-                        <img class="img_calculadora" src="img/calculadora.png" alt="imagem_do_projeto">
-                    </a>
+                    <p id="game-result-binary" class="font-mono text-lg text-gray-500 dark:text-gray-400"></p>
+                    <button id="game-reset-button"
+                        class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">
+                        Jogar Novamente
+                    </button>
                 </div>
-                <div class="div_projeto_2">
-                    <!-- Ainda não tenho mais projetos, mas terei outros em breve -->
-                    <p>em breve...</p>
-                </div>
-
             </div>
-        </section>
 
-        <section>
-            <h2 class="h2_habilidade">Habilidades</h2>
-            <ul>
-                <li>Python</li>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>SQL</li>
-            </ul>
-        </section>
+            <!-- PAINEL CONVERSOR -->
+            <div id="panel-converter" class="tab-panel space-y-6 hidden">
+                <!-- O conteúdo do conversor permanece aqui, inalterado -->
+                <div class="text-center">
+                    <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white">Conversor de Bases</h1>
+                </div>
+                <div class="flex items-center justify-center space-x-4 text-gray-500 dark:text-gray-300">
+                    <label id="label-decToBin"
+                        class="cursor-pointer font-semibold text-gray-900 dark:text-white transition-colors">Decimal</label>
+                    <button id="swap-button" title="Inverter conversão"
+                        class="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-blue-500 dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 focus:ring-blue-500 transition-all duration-300">
+                        <svg id="swap-arrow-svg" class="w-6 h-6 transition-transform duration-300 ease-in-out"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
+                    </button>
+                    <label id="label-binToDec" class="cursor-pointer font-medium transition-colors">Binário</label>
+                </div>
+                <div>
+                    <label for="numberInput" id="inputLabel"
+                        class="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Insira o número
+                        Decimal:</label>
+                    <input type="text" id="numberInput" placeholder="Digite aqui..." autocomplete="off"
+                        class="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 placeholder-gray-400 dark:placeholder-gray-500 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-150 text-center text-lg">
+                    <p id="error-message" class="text-red-500 dark:text-red-400 text-xs mt-2 h-4 opacity-0">Mensagem de
+                        erro</p>
+                </div>
+                <div class="pt-4 border-t border-gray-200 dark:border-gray-700/50">
+                    <h2 id="resultLabel"
+                        class="text-center text-base sm:text-lg font-semibold text-gray-600 dark:text-gray-300 mb-2">
+                        Resultado em Binário</h2>
+                    <div id="resultContainer"
+                        class="relative bg-gray-100 dark:bg-black dark:bg-opacity-20 p-4 rounded-lg text-center min-h-[80px] grid place-items-center transition-all">
+                        <p id="result-placeholder"
+                            class="col-start-1 row-start-1 text-gray-400 dark:text-gray-500 transition-opacity">O
+                            resultado aparecerá aqui</p>
+                        <p id="result"
+                            class="col-start-1 row-start-1 text-2xl sm:text-3xl md:text-4xl font-bold text-green-600 dark:text-green-400 break-all w-full">
+                        </p>
+                    </div>
+                    <div id="copyFeedback"
+                        class="text-center text-sm text-blue-600 dark:text-blue-400 mt-2 h-4 opacity-0">Resultado
+                        copiado!</div>
+                </div>
+            </div>
 
+            <!-- PAINEL SORTEADOR -->
+            <div id="panel-sorter" class="tab-panel space-y-6">
+                <!-- Seção Sorteador de Números -->
+                <div class="space-y-6">
+                    <div class="text-center">
+                        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white">Sorteador de Números
+                        </h1>
+                    </div>
+                    <div class="flex items-center justify-center space-x-6 text-gray-500 dark:text-gray-300">
+                        <label id="label-draw-dec"
+                            class="cursor-pointer font-semibold text-gray-900 dark:text-white transition-colors">Decimal</label>
+                        <label id="label-draw-bin"
+                            class="cursor-pointer font-medium transition-colors text-gray-500 dark:text-gray-400">Binário</label>
+                    </div>
+                    <div class="flex items-center justify-center gap-4">
+                        <div class="w-1/2">
+                            <label for="min-range"
+                                class="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Mínimo</label>
+                            <input type="number" id="min-range" value="1"
+                                class="w-full text-center px-2 py-2 bg-gray-100 dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div class="w-1/2">
+                            <label for="max-range"
+                                class="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Máximo</label>
+                            <input type="number" id="max-range" value="100"
+                                class="w-full text-center px-2 py-2 bg-gray-100 dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center pt-2 space-x-6">
+                        <div class="flex items-center">
+                            <input id="no-repeat-checkbox" type="checkbox"
+                                class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                            <label for="no-repeat-checkbox"
+                                class="ml-2 block text-sm text-gray-700 dark:text-gray-300">Não repetir</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="animation-checkbox" type="checkbox" checked
+                                class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                            <label for="animation-checkbox"
+                                class="ml-2 block text-sm text-gray-700 dark:text-gray-300">Animação</label>
+                        </div>
+                    </div>
+                    <button id="draw-button"
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 focus:ring-blue-500 disabled:bg-blue-400 dark:disabled:bg-blue-800">
+                        Sortear Número
+                    </button>
+                    <div class="space-y-4">
+                        <div id="draw-result-area"
+                            class="pt-4 border-t border-gray-200 dark:border-gray-700/50 space-y-2 text-center hidden">
+                            <div class="flex items-center justify-center">
+                                <p class="font-semibold text-gray-600 dark:text-gray-300" id="draw-result-label">Número
+                                    Sorteado:</p>
+                                <button id="reset-draw-button" title="Reiniciar sorteio"
+                                    class="ml-2 text-gray-400 hover:text-blue-500 hidden">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                        fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 110 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="font-mono text-2xl text-green-600 dark:text-green-400 break-all"
+                                id="draw-result-value"></p>
+                            <p id="draw-error-message" class="text-red-500 dark:text-red-400 text-xs mt-1 h-4"></p>
+                        </div>
+                        <div id="draw-history-container" class="text-center hidden">
+                            <button id="history-toggle-button"
+                                class="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center justify-center w-full">
+                                <span id="history-toggle-text">Histórico (0)</span>
+                                <svg id="history-arrow-icon" class="w-4 h-4 ml-1 transition-transform"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <ul id="history-list"
+                                class="mt-2 p-3 bg-gray-100 dark:bg-gray-700 rounded-lg max-h-32 overflow-y-auto text-left hidden">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-        <footer>
-            <h2 class="h2_contato">Entre em contato comigo</h2>
-            <a class="link_github" href="https://github.com/Vict0Rocha" target="_blank"><b> GitHub</b></a>
-            <p>victor.rocha@estudante.ifmt.edu.br</p>
+                <!-- Divisor -->
+                <div class="border-t border-gray-200 dark:border-gray-700/50 !mt-8"></div>
 
-        </footer>
+                <!-- SEÇÃO TEMPORIZADOR -->
+                <div class="space-y-4 pt-2">
+                    <div class="text-center">
+                        <h2 class="text-xl font-bold text-gray-800 dark:text-white">Temporizador</h2>
+                    </div>
+                    <div id="timer-display" class="text-center font-mono text-4xl text-gray-900 dark:text-white">
+                        00:00.00</div>
+                    <div id="timer-inputs" class="flex justify-center items-center space-x-2 hidden">
+                        <input type="number" id="timer-minutes"
+                            class="w-20 text-center p-2 bg-gray-100 dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 rounded-lg"
+                            value="0" min="0" max="59">
+                        <span class="font-bold text-xl">:</span>
+                        <input type="number" id="timer-seconds"
+                            class="w-20 text-center p-2 bg-gray-100 dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 rounded-lg"
+                            value="0" min="0" max="59">
+                    </div>
+                    <!-- MODIFICADO: Adicionado botão de repetir -->
+                    <div class="flex justify-center space-x-4">
+                        <button id="timer-toggle"
+                            class="w-24 bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">Iniciar</button>
+                        <button id="timer-reset"
+                            class="w-24 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">Reiniciar</button>
+                        <button id="timer-repeat" title="Repetir último tempo"
+                            class="w-12 h-10 flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold p-2 rounded-lg transition-colors disabled:opacity-50"
+                            disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 110 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col1"></div>
-
 </body>
 
 </html>
